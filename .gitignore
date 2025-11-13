@@ -1,0 +1,25 @@
+# Ignore the Cargo build directory
+/target
+
+# Ignore backup and temp files
+*.log
+*.tmp
+*.swp
+*.bak
+
+# macOS system files
+.DS_Store
+
+# VS Code settings (optional)
+.vscode/
+
+# Rust build artifacts for release/debug
+**/*.rlib
+**/*.rmeta
+
+# Optional: if you ever build docs locally
+/target/doc
+
+# Optional: if you later compile to WebAssembly
+pkg/
+wasm-pack.log
