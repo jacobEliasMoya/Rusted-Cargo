@@ -1,3 +1,11 @@
+// use std::io;
+// use rand::Rng;
+// use std::cmp::Ordering;
+
 fn main() {
-    println!("🦀 My first Rust program .. baby steps");
+    let mut x: i32 = 5;
+    let mut_num: i32 = 365;
+    x = x + mut_num;
+    println!("x is {x}");
+
 }
