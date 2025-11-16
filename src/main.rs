@@ -1,11 +1,15 @@
-// use std::io;
-// use rand::Rng;
-// use std::cmp::Ordering;
+use std::io;
 
 fn main() {
-    let mut x: i32 = 5;
-    let mut_num: i32 = 365;
-    x = x + mut_num;
-    println!("x is {x}");
+    println!("Guess the number!");
+    println!("Please input your guess.");
 
+    let mut guess: String = String::new();
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {guess}");
 }
+ 
