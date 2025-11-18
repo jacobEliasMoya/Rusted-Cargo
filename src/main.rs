@@ -20,4 +20,24 @@ fn main() {
     let hours_in_seconds: u32 = MINUTES_IN_HOUR * SECONDS_IN_MINUTE * hours_input;
 
     println!("Hours In Seconds is {}", hours_in_seconds);
+
+    println!("_______________________________________________________________________");
+
+    let x: i32 = 5;
+
+    let x: i32 = x + 1;
+
+    {
+        let x: i32 = x * 2;
+        println!("Inner scope x = {}", x);
+    }
+
+    println!("Outer Scope of x = {}", x);
+
+    println!("_______________________________________________________________________");
+
+    let spaces: &str = " ";
+    let spaces: usize = spaces.len();
+
+    println!("Spaces: {}", spaces);
 }
