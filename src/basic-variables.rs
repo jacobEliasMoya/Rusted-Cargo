@@ -3,11 +3,10 @@
 // use std::cmp::Ordering;
 
 fn main() {
-    // let mut x: i32 = 5;
-    // let mut_num: i32 = 365;
-    // x = x + mut_num;
-    // println!("x is {x}");
-
+    let mut x: i32 = 5;
+    let mut_num: i32 = 365; 
+    x = x + mut_num;
+    println!("x is {x}");
     println!("Hello This is Rusty")
 }
  

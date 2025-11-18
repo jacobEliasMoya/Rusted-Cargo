@@ -1,35 +1,23 @@
-use std::cmp::Ordering;
 use std::io;
 
-use rand::Rng;
 fn main() {
-    println!("Guess the number!");
+    let mut hours_input: String = String::new();
 
-    let secret_number: u32 = rand::thread_rng().gen_range(1..=100);
+    println!("Enter hours to be calculated into seconds:");
 
-    loop {
-        println!("Please input your guess ");
+    io::stdin()
+        .read_line(&mut hours_input)
+        .expect("Failed to read line");
 
-        let mut guess: String = String::new();
+    let hours_input: u32 = hours_input
+        .trim()
+        .parse()
+        .expect("Should be a Num or something");
 
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
+    const MINUTES_IN_HOUR: u32 = 60;
+    const SECONDS_IN_MINUTE: u32 = 60;
 
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
+    let hours_in_seconds: u32 = MINUTES_IN_HOUR * SECONDS_IN_MINUTE * hours_input;
 
-        println!("You guessed: {guess}");
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("To Small!"),
-            Ordering::Greater => println!("To Big!"),
-            Ordering::Equal => {
-                println!("You Win!");
-                break;
-            }
-        }
-    }
+    println!("Hours In Seconds is {}", hours_in_seconds);
 }
