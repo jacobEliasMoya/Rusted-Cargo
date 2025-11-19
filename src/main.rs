@@ -1,43 +1,35 @@
-use std::io;
-
 fn main() {
-    let mut hours_input: String = String::new();
+    println!(" ____________________________________________\n");
+    println!("|          Chapter 3.2: Data Types           |");
+    println!(" ____________________________________________\n");
 
-    println!("Enter hours to be calculated into seconds:");
+    let guess: u32 = "42".parse().expect("Not a number!");
 
-    io::stdin()
-        .read_line(&mut hours_input)
-        .expect("Failed to read line");
+    println!("|* This is the guess, parsed as a number {}  *|\n", guess);
 
-    let hours_input: u32 = hours_input
-        .trim()
-        .parse()
-        .expect("Should be a Num or something");
+    println!(" ____________________________________________\n");
 
-    const MINUTES_IN_HOUR: u32 = 60;
-    const SECONDS_IN_MINUTE: u32 = 60;
+    let negative_number: i8 = -32;
+    let positive_number: u8 = 32;
 
-    let hours_in_seconds: u32 = MINUTES_IN_HOUR * SECONDS_IN_MINUTE * hours_input;
+    // so unsigned integers are positive, and unsigned(i) - have a negative
+    // was curious why this was popping up, nice little tidbit of info
 
-    println!("Hours In Seconds is {}", hours_in_seconds);
+    println!("This is a signed integer: {}", negative_number);
+    println!("This is a unsigned integer: {} \n", positive_number);
 
-    println!("_______________________________________________________________________");
+    println!("Testing max unsigned num {}", u128::MAX);
+    println!("Testing min unsigned num {} \n", u128::MIN);
 
-    let x: i32 = 5;
+    println!("Testing max signed num {}", i64::MAX);
+    println!("Testing min signed num {}\n", i64::MIN);
 
-    let x: i32 = x + 1;
+    let decimal: u32 = 98_222;
+    println!("This should be a decimal: {}", decimal);
 
-    {
-        let x: i32 = x * 2;
-        println!("Inner scope x = {}", x);
-    }
-
-    println!("Outer Scope of x = {}", x);
-
-    println!("_______________________________________________________________________");
-
-    let spaces: &str = " ";
-    let spaces: usize = spaces.len();
-
-    println!("Spaces: {}", spaces);
+    // all floating points are signed
+    let floating_point: f32 = -45.87;
+    let floating_point_two: f64 = -45.87;
+    println!("This is a floating point - f32: {}", floating_point);
+    println!("This is a floating point: - f64 {}", floating_point_two);
 }
