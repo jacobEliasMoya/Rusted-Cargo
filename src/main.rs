@@ -60,4 +60,16 @@ fn main() {
     let character: char = 'B';
 
     println!("This is a char, remeber just single quote, not double: '{character}'");
+
+    let tup: (i32, f64, u8) = (-456, 4.5, 5);
+
+    let (x, y, z) = tup;
+
+    println!("This is a tuple: {x}, {y}, {z}");
+
+    let four_fifty_six: i32 = tup.0;
+    let four_point_five: f64 = tup.1;
+    let five: u8 = tup.2;
+
+    println!("Parts of the tuple, indexed accordingly {four_fifty_six}, {four_point_five}, {five}");
 }
