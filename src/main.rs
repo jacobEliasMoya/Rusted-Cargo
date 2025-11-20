@@ -32,4 +32,32 @@ fn main() {
     let floating_point_two: f64 = -45.87;
     println!("This is a floating point - f32: {}", floating_point);
     println!("This is a floating point: - f64 {}", floating_point_two);
+
+    let remainder: u8 = 43 % 5;
+    let truncated: i8 = -5 / 3;
+
+    println!("remainder using modulo: {remainder} ");
+    println!("truncation: {truncated}");
+
+    let sum: u8 = 5 + 5;
+    let difference: u8 = 5 - 4;
+
+    println!("sum is: {sum}");
+    println!("difference is: {difference}");
+
+    let product: u8 = 8 * 8;
+    let quotient: f64 = 8.2 / 8.0;
+
+    println!("product is: {product}");
+    println!("quotient is: {quotient}");
+
+    let true_bool: bool = true;
+    let false_bool: bool = false;
+
+    println!("This bool is: {true_bool}");
+    println!("This bool is: {false_bool}");
+
+    let character: char = 'B';
+
+    println!("This is a char, remeber just single quote, not double: '{character}'");
 }
