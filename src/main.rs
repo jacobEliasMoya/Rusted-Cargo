@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
     println!(" ____________________________________________\n");
     println!("|          Chapter 3.2: Data Types           |");
@@ -25,13 +27,13 @@ fn main() {
     println!("Testing min signed num {}\n", i64::MIN);
 
     let decimal: u32 = 98_222;
-    println!("This should be a decimal: {}", decimal);
+    println!("This should be a decimal: {}\n", decimal);
 
     // all floating points are signed
     let floating_point: f32 = -45.87;
     let floating_point_two: f64 = -45.87;
     println!("This is a floating point - f32: {}", floating_point);
-    println!("This is a floating point: - f64 {}", floating_point_two);
+    println!("This is a floating point: - f64 {}\n", floating_point_two);
 
     let remainder: u8 = 43 % 5;
     let truncated: i8 = -5 / 3;
@@ -72,4 +74,26 @@ fn main() {
     let five: u8 = tup.2;
 
     println!("Parts of the tuple, indexed accordingly {four_fifty_six}, {four_point_five}, {five}");
+
+    let practice_arr: [i32; 5] = [1, 2, 3, 4, 1235];
+    let parctice_array_two: [i32; 5] = [9; 5];
+
+    let array_slice_one: i32 = practice_arr[0];
+    let array_slice_two: i32 = parctice_array_two[1];
+
+    println!("This is an array piece: {array_slice_one}, and here is another: {array_slice_two}");
+
+    let mut index: String = String::new();
+
+    println!("Please enter an index");
+
+    io::stdin()
+        .read_line(&mut index)
+        .expect("Failed to read line");
+
+    let index: usize = index.trim().parse().expect("Index was not a number");
+
+    let element = practice_arr[index];
+
+    println!("The value at index {index} is {element}");
 }
