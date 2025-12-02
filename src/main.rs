@@ -9,17 +9,38 @@ fn main() {
 
     // ________________________________________________________//
 
-    let mut s:String = String::from("Hello");
+    let mut s: String = String::from("Hello");
 
     change(&mut s);
 
     println!("{s}");
+
+    // ________________________________________________________//
+
+    {
+        let r1: &String = &mut s;
+        println!("{r1} is in a different scope");
+    }
+
+    let r2: &String = &mut s;
+    println!("{r2}");
+
+    let mut mutable_string:String = String::from("value");
+
+    let immutable_one:&String = &mutable_string;
+    let immutable_two:&String = &mutable_string;
+
+    println!("These are immutable {immutable_one} & {immutable_two}");
+
+    let mutable_three:&String = &mut mutable_string;
+    println!("This is mutable {mutable_three}");
+
 }
 
 fn calculate_length(s: &String) -> usize {
     s.len() //return string length
 }
 
-fn change(some_string:&mut String) {
+fn change(some_string: &mut String) {
     some_string.push_str(", World");
 }
