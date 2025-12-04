@@ -1,9 +1,9 @@
 //The Slice Type
 fn main() {
     let string: String = String::from("Hello World");
-    // let first_word: usize = first_word(&string);
+    let first_word: &str = first_word(&string);
 
-    // println!("{}", first_word);
+    println!("{}", first_word);
     // println!("{}", string);
 
     // string.clear();
@@ -16,7 +16,27 @@ fn main() {
 
     println!("{first}_{last}");
 
- }
+    let slice: &str = &string[0..2];
+    println!("{slice}");
+
+    let slice: &str = &string[..2];
+    println!("{slice}");
+
+    let string_length: usize = string.len();
+
+    let slice: &str = &string[3..string_length];
+    println!("{slice}");
+
+    let slice: &str = &string[3..];
+    println!("{slice}");
+
+    
+    let slice: &str = &string[0..string_length];
+    println!("{slice}");
+
+    let slice: &str = &string[..];
+    println!("{slice}");
+}
 
 // attempt at byte level pattern searching .)_.) ... learning curve bigtime but its fun
 // fn find_dog(s: &String) {
@@ -27,14 +47,14 @@ fn main() {
 //     }
 // }
 
-// fn first_word(s: &String) -> usize {
-//     let bytes = s.as_bytes();
+fn first_word(s: &String) -> &str {
+    let bytes: &[u8] = s.as_bytes();
 
-//     for (i, &item) in bytes.iter().enumerate() {
-//         if item == b' ' {
-//             return i;
-//         }
-//     }
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
 
-//     s.len()
-// }
+    &s[..]
+}
