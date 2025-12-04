@@ -1,17 +1,19 @@
 //The Slice Type
 fn main() {
-    let string: String = String::from("This is the value that I am looking at");
-    first_word(&string);
+    let string: String = String::from("Find the word dog");
+    let f_word: () = find_dog(&string);
+
+    println!("{:?}", f_word);
 }
 
-fn first_word(s: &String) -> usize {
+// attempt at byte level pattern searching .)_.) ... learning curve bigtime but its fun
+fn find_dog(s: &String) {
     let bytes: &[u8] = s.as_bytes();
 
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
-            return i;
-        }
-    }
+    let target: &[u8; 3] = b"dog";
 
-    s.len()
+    for (i, &item) in target.iter().enumerate() {
+        println!("{item}");
+    }
 }
+
