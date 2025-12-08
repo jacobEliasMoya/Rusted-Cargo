@@ -30,12 +30,17 @@ fn main() {
     let slice: &str = &string[3..];
     println!("{slice}");
 
-    
     let slice: &str = &string[0..string_length];
     println!("{slice}");
 
     let slice: &str = &string[..];
     println!("{slice}");
+
+    let a: [i32; 5] = [1, 2, 3, 4, 5];
+
+    let slice: &[i32] = &a[1..3];
+
+    assert_eq!(slice, &[2, 3]);
 }
 
 // attempt at byte level pattern searching .)_.) ... learning curve bigtime but its fun
