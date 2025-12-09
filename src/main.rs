@@ -51,8 +51,10 @@ fn main() {
         sign_in_count: 1,
     };
 
-    // println!("User1: {}", user1.username);
-    println!("User1 instance: {}",user1_alt.username);
+    println!(
+        "User1 instance, cannot use old user1 String as user1_alt now owns it: {}",
+        user1_alt.username
+    );
 }
 
 // function to create user - using shorthand here, func params match struct field name to ensure this works
