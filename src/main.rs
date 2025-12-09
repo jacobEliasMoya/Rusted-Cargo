@@ -55,6 +55,13 @@ fn main() {
         "User1 instance, cannot use old user1 String as user1_alt now owns it: {}",
         user1_alt.username
     );
+
+    let user_mark_alt: User = User { ..user_mark };
+
+    println!(
+        "This is usermarks shtuff: {} | {}",
+        user_mark_alt.username, user_mark_alt.email
+    );
 }
 
 // function to create user - using shorthand here, func params match struct field name to ensure this works
