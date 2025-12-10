@@ -5,6 +5,9 @@ struct User {
     sign_in_count: u64,
 }
 
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
 fn main() {
     println!("Intro Into Structs");
     println!("_________________________________________\n");
@@ -56,12 +59,24 @@ fn main() {
         user1_alt.username
     );
 
-    let user_mark_alt: User = User { ..user_mark };
+    let user_mark_alt: User = User {
+        username: String::from("pop docker"),
+        ..user_mark
+    };
 
     println!(
         "This is usermarks shtuff: {} | {}",
         user_mark_alt.username, user_mark_alt.email
     );
+
+    let black: Color = Color(0, 0, 0);
+    let origin: Point = Point(0, 0, 0);
+
+    let Color(c1, c2, c3) = black;
+    let Point(x, y, z) = origin;
+
+    println!("Destructured black values: {c1}, {c2}, {c3}");
+    println!("Destructured origin values: {x}, {y}, {z}");
 }
 
 // function to create user - using shorthand here, func params match struct field name to ensure this works
