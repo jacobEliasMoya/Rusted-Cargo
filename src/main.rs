@@ -8,6 +8,7 @@ struct User {
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
 
+struct AlwaysEqual;
 fn main() {
     println!("Intro Into Structs");
     println!("_________________________________________\n");
@@ -77,6 +78,7 @@ fn main() {
 
     println!("Destructured black values: {c1}, {c2}, {c3}");
     println!("Destructured origin values: {x}, {y}, {z}");
+
 }
 
 // function to create user - using shorthand here, func params match struct field name to ensure this works
