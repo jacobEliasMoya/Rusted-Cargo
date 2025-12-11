@@ -16,17 +16,20 @@ fn main() {
     // let rect1: (u32, u32) = (30, 50);
     // println!("The are of the rectangle is {} square pixles.", area(rect1));
 
+    let scale: u32 = 2;
     let rect1: Rectangle = Rectangle {
-        width: 30,
+        width: dbg!(scale * 30),
         height: 50,
     };
 
-    println!("rect1 is {rect1:#?}");
+    println!("rect1 = {rect1:#?}");
 
     println!(
         "The are of the rectangle is {} square pixles.",
         area(&rect1)
     );
+
+    dbg!(&rect1);
 }
 
 // v1
