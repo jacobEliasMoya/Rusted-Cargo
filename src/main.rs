@@ -1,3 +1,8 @@
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
 fn main() {
     // let width1: u32 = 30;
     // let height1: u32 = 50;
@@ -7,9 +12,15 @@ fn main() {
     //     area(width1, height1)
     // );
 
-    let rect1: (u32, u32) = (30, 50);
+    // let rect1: (u32, u32) = (30, 50);
+    // println!("The are of the rectangle is {} square pixles.", area(rect1));
 
-    println!("The are of the rectangle is {} square pixles.", area(rect1));
+    let rect: Rectangle = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!("The are of the rectangle is {} square pixles.", area(rect));
 }
 
 // v1
@@ -17,6 +28,10 @@ fn main() {
 //     width * height
 // }
 
-fn area(dimensions: (u32, u32)) -> u32 {
-    dimensions.0 * dimensions.1
+// fn area(dimensions: (u32, u32)) -> u32 {
+//     dimensions.0 * dimensions.1
+// }
+
+fn area(rectangle: Rectangle) -> u32 {
+    rectangle.height * rectangle.width
 }
