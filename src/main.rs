@@ -29,4 +29,9 @@ fn main() {
         Some(n) => println!("{}", n),
         None => println!("Some Number: No Value"),
     }
+
+    let x: i8 = 5;
+    let y:std::prelude::v1::Option<i32> = Some(5);
+
+    let sum = x + y;
 }
