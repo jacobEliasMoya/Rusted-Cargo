@@ -11,12 +11,22 @@ fn main() {
 
     let absent_number: std::prelude::v1::Option<i32> = None;
 
-    println!("{:?}",some_number);
-    println!("{:?}",some_char);
-    println!("{:?}",absent_number);
+    println!("{:?}", some_number);
+    println!("{:?}", some_char);
+    println!("{:?}", absent_number);
 
     match some_number {
-        Some(n) => println!("{}",n),
-        None => println!("Some Number: No Value")
+        Some(n) => println!("{}", n),
+        None => println!("Some Number: No Value"),
+    }
+
+    match some_char {
+        Some(n) => println!("{}", n),
+        None => println!("Some Number: No Value"),
+    }
+
+    match absent_number {
+        Some(n) => println!("{}", n),
+        None => println!("Some Number: No Value"),
     }
 }
