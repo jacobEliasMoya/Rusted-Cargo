@@ -1,37 +1,33 @@
-//
+// The match Control Flow Construct
 
-enum Option<T> {
-    None,
-    Some(T),
+enum Coin {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter,
 }
 
 fn main() {
-    let some_number: std::prelude::v1::Option<i32> = None;
-    let some_char: std::prelude::v1::Option<char> = Some('e');
+    let penny: Coin = Coin::Penny;
+    let nickel: Coin = Coin::Nickel;
+    let dime: Coin = Coin::Dime;
+    let quarter: Coin = Coin::Quarter;
 
-    let absent_number: std::prelude::v1::Option<i32> = None;
+    let penny_value: u8 = values_in_cents(penny);
+    let nickel_value: u8 = values_in_cents(nickel);
+    let dime_value: u8 = values_in_cents(dime);
+    let quarter_value: u8 = values_in_cents(quarter);
 
-    println!("{:?}", some_number);
-    println!("{:?}", some_char);
-    println!("{:?}", absent_number);
+    println!(
+        "Penny: {penny_value}, Nickel: {nickel_value}, Dime: {dime_value}, Quarter: {quarter_value}"
+    );
+}
 
-    match some_number {
-        Some(n) => println!("{}", n),
-        None => println!("Some Number: No Value"),
+fn values_in_cents(coin: Coin) -> u8 {
+    match coin {
+        Coin::Penny => 1,
+        Coin::Nickel => 5,
+        Coin::Dime => 10,
+        Coin::Quarter => 25,
     }
-
-    match some_char {
-        Some(n) => println!("{}", n),
-        None => println!("Some Number: No Value"),
-    }
-
-    match absent_number {
-        Some(n) => println!("{}", n),
-        None => println!("Some Number: No Value"),
-    }
-
-    let x: i8 = 5;
-    let y:std::prelude::v1::Option<i32> = Some(5);
-
-    let sum = x + y;
 }
