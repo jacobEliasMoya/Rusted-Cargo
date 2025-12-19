@@ -1,17 +1,20 @@
 // The match Control Flow Construct
-
+#[derive(Debug)]
+enum UsState {
+    California,
+}
 enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter,
+    Quarter(UsState),
 }
 
 fn main() {
     let penny: Coin = Coin::Penny;
     let nickel: Coin = Coin::Nickel;
     let dime: Coin = Coin::Dime;
-    let quarter: Coin = Coin::Quarter;
+    let quarter: Coin = Coin::Quarter(UsState::California);
 
     let penny_value: u8 = values_in_cents(&penny);
     let nickel_value: u8 = values_in_cents(&nickel);
@@ -24,10 +27,16 @@ fn main() {
 }
 
 fn values_in_cents(coin: &Coin) -> u8 {
-    match coin {
-        Coin::Penny => 1,
+    match &coin {
+        Coin::Penny => {
+            println!("Lucky Penny!");
+            1
+        }
         Coin::Nickel => 5,
         Coin::Dime => 10,
-        Coin::Quarter => 25,
+        Coin::Quarter(state) => {
+            println!("State Quarter is from: {state:?}!");
+            25
+        }
     }
 }
