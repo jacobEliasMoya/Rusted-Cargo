@@ -1,3 +1,5 @@
+use rand::Rng;
+
 // The match Control Flow Construct
 #[derive(Debug)]
 enum UsState {
@@ -26,11 +28,30 @@ fn main() {
     );
 
     let five: Option<i32> = Some(5);
-    let six:Option<i32> = plus_one(five);
+    let six: Option<i32> = plus_one(five);
     let none: Option<i32> = plus_one(None);
 
     println!("{five:?} {six:?} {none:?}");
 
+    let dice_roll: u8 = rand::thread_rng().gen_range(1..=7);
+
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        _ => reroll(),
+    }
+}
+
+fn add_fancy_hat() {
+    println!("Got a fancy hat")
+}
+
+fn remove_fancy_hat() {
+    println!("Removed fancy hat")
+}
+
+fn reroll() {
+    println!("Rerolling")
 }
 
 fn values_in_cents(coin: &Coin) -> u8 {
