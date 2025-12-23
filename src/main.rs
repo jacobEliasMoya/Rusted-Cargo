@@ -38,7 +38,7 @@ fn main() {
     match dice_roll {
         3 => add_fancy_hat(),
         7 => remove_fancy_hat(),
-        _ => reroll(),
+        _ => (),
     }
 }
 
@@ -50,9 +50,9 @@ fn remove_fancy_hat() {
     println!("Removed fancy hat")
 }
 
-fn reroll() {
-    println!("Rerolling")
-}
+// fn reroll() {
+//     println!("Rerolling")
+// }
 
 fn values_in_cents(coin: &Coin) -> u8 {
     match &coin {
