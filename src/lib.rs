@@ -45,8 +45,12 @@ mod back_of_house {
     fn cook_order() {}
 }
 
-pub fn eat_at_restaurant() {
-    let order1 = back_of_house::Appetizer::Soup;
-    let order2 = back_of_house::Appetizer::Salad;
-}
+mod customer {
+    use crate::front_of_house::hosting::add_to_waitlist;
 
+    pub fn eat_at_restaurant() {
+        // let order1 = back_of_house::Appetizer::Soup;
+        // let order2 = back_of_house::Appetizer::Salad;
+        add_to_waitlist();
+    }
+}
