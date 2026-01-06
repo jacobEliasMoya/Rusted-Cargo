@@ -1,9 +1,14 @@
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
 mod front_of_house {
     pub mod hosting {
         pub fn add_to_waitlist() {}
 
         fn seat_at_table() {}
     }
+
+    pub use crate::front_of_house::hosting as foh_hosting;
 
     mod serving {
         fn take_order() {}
@@ -54,3 +59,11 @@ mod customer {
         add_to_waitlist();
     }
 }
+
+// fn function1() -> Result {
+
+// }
+
+// fn function()-> IoResult<()>{
+
+// }
