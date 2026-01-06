@@ -1,5 +1,4 @@
-use std::fmt::Result;
-use std::io::Result as IoResult;
+use std::{fmt::Result,io::Result as IoResult};
 
 mod front_of_house {
     pub mod hosting {
