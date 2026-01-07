@@ -14,9 +14,18 @@ fn main() {
     let third: Option<&i32> = v.get(2);
 
     match third {
-        Some(third) => print!("Good to go, valid index here: {third}"),
+        Some(third) => println!("Good to go, valid index here: {third}"),
         None => println!("Error, no valid index"),
     }
 
+    for i in &v {
+        println!("{i}");
+    }
     // println!("In vector:{v:?} '{third:?}' is the 3rd item");
+
+    for i in &mut v {
+        *i += 50;
+    }
+
+    println!("{v:?}");
 }
