@@ -1,4 +1,11 @@
 // Common collections
+#[derive(Debug)]
+enum SpreadSheetCell {
+    Int(i32),
+    Float(f64),
+    Text(String),
+}
+
 fn main() {
     let mut v: Vec<i32> = Vec::new();
     // let vec1: Vec<i32> = vec![1,2,3];
@@ -27,5 +34,19 @@ fn main() {
         *i += 50;
     }
 
-    println!("{v:?}");
+    println!("Revised and updated w/ dereferencing {v:?}");
+
+    let row: Vec<SpreadSheetCell> = vec![
+        SpreadSheetCell::Int(67),
+        SpreadSheetCell::Text(String::from("Six-Seven")),
+        SpreadSheetCell::Float(67.67),
+    ];
+
+    for cell in &row {
+        match cell {
+            SpreadSheetCell::Float(f) => println!("Float: {f}"),
+            SpreadSheetCell::Text(t) => println!("text: {t}"),
+            SpreadSheetCell::Int(i) => println!("Int: {i}"),
+        }
+    }
 }
