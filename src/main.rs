@@ -14,12 +14,24 @@ fn main() {
 
     println!("{str}");
 
-    let mut s1:String = String::from("foo");
+    let s1: String = String::from("foo");
     let s2 = "bar";
+    let s3 = s1 + &s2;
 
-    s1.push_str(s2);
+    // s1.push_str(s2);
 
-    println!("{s1}");
+    // s1.push('l')
+    println!("{s3}");
+
+    // string slicing
+    let slice = "HelloThereString";
+    let selected_slice = &slice[0..11];
+
+    println!("This is the selected_slice {selected_slice}");
+
+    for c in selected_slice.chars() {
+        println!("The char is: {c}");
+    }
 
 
 }
