@@ -37,4 +37,24 @@ fn main() {
     for (k, v) in &new_map {
         println!("My {k} is {v}");
     }
+
+    let mut more_scores: HashMap<String, u32> = HashMap::new();
+    more_scores.insert(String::from("Blue"), 10);
+    more_scores.entry(String::from("Red")).or_insert(12);
+    more_scores.entry(String::from("Blue")).or_insert(12);
+
+    for (k, v) in &more_scores {
+        println!("This is the color {k} and its score {v}");
+    }
+
+    let text_split: &str = "Hello World Wonderful World";
+
+    let mut char_map: HashMap<&str, i32> = HashMap::new();
+
+    for word in text_split.split_whitespace() {
+        let count: &mut i32 = char_map.entry(word).or_insert(0);
+        *count += 1;
+    }
+
+    println!("{char_map:?}");
 }
