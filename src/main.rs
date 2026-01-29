@@ -51,3 +51,9 @@ fn read_username_from_file_alt() -> Result<String, io::Error>{
     Ok(username)
 
 }
+
+
+fn read_username_from_file_alt_alt() -> Result<String, io::Error>{
+    let mut username = String::new()?.read_to_string(&mut username);
+    Ok(username)
+}
