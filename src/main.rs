@@ -1,7 +1,9 @@
 // Error Handling in Rust
+use std::io;
+use std::io::{self,Read};
 use std::fs::File;
+use std::fs;
 // use std::io::ErrorKind;
-
 fn main() {
     // let v: Vec<i32> = vec![1, 2, 3];
     // for i in &v {
@@ -52,8 +54,13 @@ fn read_username_from_file_alt() -> Result<String, io::Error>{
 
 }
 
-
 fn read_username_from_file_alt_alt() -> Result<String, io::Error>{
-    let mut username = String::new()?.read_to_string(&mut username);
+    let mut username = String::new();
+    File::open("hello.txt")?.read_to_string(&mut username)?;
     Ok(username)
 }
+
+fn read_username_from_file_alt_alt_alt() -> Result<String, io::Error>{
+    fs::read_to_string("hello.txt")
+}
+
