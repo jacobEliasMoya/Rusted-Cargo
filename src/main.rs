@@ -20,7 +20,6 @@ fn main() {
     //         }
     //     },
     // };
-
     // let greeting_file: File = File::open("hello.txt").unwrap();
 
     let greeting_file: File = File::open("helo.txt").expect("This is an error, no file found"); // expect is a more commonplace appraoch here for err handling
@@ -44,4 +43,6 @@ fn read_username_from_file()->Result<String,io::Error>{
    }
 
 }
+
+
 
