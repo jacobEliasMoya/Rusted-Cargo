@@ -1,5 +1,4 @@
 // Error Handling in Rust
-use std::io;
 use std::io::{self,Read};
 use std::fs::File;
 use std::fs;
@@ -64,3 +63,4 @@ fn read_username_from_file_alt_alt_alt() -> Result<String, io::Error>{
     fs::read_to_string("hello.txt")
 }
 
+fn last_char_of_first_line(text:&str)->Option<char>{text.lines().next()?.chars().last()}
