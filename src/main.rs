@@ -1,4 +1,4 @@
-// To panic or not to panic!
+// t puTo panic or not to panic!
 use std::net::IpAddr;
 
 fn main() {
