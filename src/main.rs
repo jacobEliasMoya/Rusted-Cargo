@@ -1,4 +1,9 @@
 // Generic Data Types
+#[derive(Debug)]
+struct Point<T, U> {
+    x: T,
+    y: U,
+}
 
 // fn largest(list: &[i32]) -> &i32 {
 //     let mut largest = &list[0];
@@ -16,11 +21,18 @@ fn main() {
     let result = largest_generic(&number_list);
     println!("This is the largest number: {result}");
 
-    let char_list = vec!['y', 'm', 'a', 'q'];
+    let char_list = vec!['y', 'm', 'a', 'q', 'r'];
     let result = largest_generic(&char_list);
     println!("This is the largest char: {result}");
-}
 
+    let integer = Point { x: 5, y: 10 };
+    let float = Point { x: 5.0, y: 10.0 };
+    let float_int = Point { x: 20, y: 10.0 };
+
+    println!("{integer:?}");
+    println!("{float:?}");
+    println!("{float_int:?}");
+}
 // fn largest_i32(list: &[i32]) -> &i32 {
 //     let mut largest = &list[0];
 //
