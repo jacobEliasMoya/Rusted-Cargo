@@ -5,6 +5,21 @@ struct Point<T> {
     y: T,
 }
 
+#[derive(Debug)]
+struct MixPoint<X1, Y1> {
+    x: X1,
+    y: Y1,
+}
+
+impl<X1, Y1> MixPoint<X1, Y1> {
+    fn mixup<X2, Y2>(self, other: MixPoint<X2, Y2>) -> MixPoint<X1, Y2> {
+        MixPoint {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
 impl<T> Point<T> {
     fn x(&self) -> &T {
         &self.x
@@ -34,18 +49,25 @@ impl Point<f32> {
 //
 
 fn main() {
-    let number_list = vec![34, 50, 36, 100, 65];
-    let result = largest_generic(&number_list);
-    println!("This is the largest number: {result}");
-
-    let p = Point { x: 6, y: 7 };
-
-    println!("p.x = {}", p.x());
-    println!("p.y = {}", p.y());
-
+    // let number_list = vec![34, 50, 36, 100, 65];
+    //
+    // println!("This is the largest number: {result}");
+    //
+    // let p = Point { x: 6, y: 7 };
+    //
+    // println!("p.x = {}", p.x());
+    // println!("p.y = {}", p.y());
+    //
     let p_float = Point { x: 1.5, y: 2.4 };
 
     println!("distance: {}", p_float.distance_from_origin());
+
+    let p1 = MixPoint { x: 5, y: 10.4 };
+    let p2 = MixPoint { x: "Hello", y: 'c' };
+
+    let p3 = p1.mixup(p2);
+
+    println!("p3.x = {} p3.y = {}", p3.x, p3.y);
 
     // let char_list = vec!['y', 'm', 'a', 'q', 'r'];
     // let result = largest_generic(&char_list);
