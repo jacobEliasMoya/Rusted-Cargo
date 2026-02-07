@@ -1,10 +1,5 @@
-[package]
-name = "rusted-cargo"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-rand = "0.8.5" # being used in separate files, not used at the moment
-
-[profile.release]
-panic = 'abort'
+[workspace]
+members = [
+"app",
+"aggregator"
+]
