@@ -1,5 +1,5 @@
 // Defining Shared Behavior with Traits
-use aggregator::{NewsArticle, SocialPost, Summary};
+use aggregator::{NewsArticle, SocialPost, Summary, notify};
 
 fn main() {
     let article = NewsArticle {
@@ -18,5 +18,12 @@ fn main() {
         repost: false,
     };
 
+    let post_two = SocialPost {
+        username: String::from("MojoBojo"),
+        content: String::from("This is mojobojos blog post, bing bingo bongo"),
+        reply: false,
+        repost: false,
+    };
     println!("New Post: {}", post.summarize());
+    notify(&post_two);
 }
