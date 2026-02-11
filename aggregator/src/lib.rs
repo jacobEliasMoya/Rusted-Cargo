@@ -1,5 +1,11 @@
+use uuid::Uuid;
+
 pub trait Summary {
     fn summarize(&self) -> String;
+}
+
+pub trait Identify {
+    fn identify(&self) -> Uuid;
 }
 
 pub trait Loggable {
@@ -7,6 +13,7 @@ pub trait Loggable {
 }
 
 pub struct NewsArticle {
+    pub id: Uuid,
     pub headline: String,
     pub location: String,
     pub author: String,
@@ -25,6 +32,12 @@ impl Loggable for NewsArticle {
     }
 }
 
+impl Identify for NewsArticle {
+    fn identify(&self) -> Uuid {
+        self.id
+    }
+}
+
 pub struct SocialPost {
     pub username: String,
     pub content: String,
@@ -38,14 +51,15 @@ impl Summary for SocialPost {
     }
 }
 
-pub fn notify(item: &impl Summary) {
+pub fn notify(item: &(impl Summary + Identify)) {
     println!("Breaking new! {}", item.summarize());
+    println!("ID: {}", item.identify());
 }
 
-pub fn notify_both<T: Summary>(item: &T) {
-    println!("Breaking new! {}", item.summarize());
-}
+// pub fn notify_both<T: Summary>(item: &T) {
+//     println!("Breaking new! {}", item.summarize());
+// }
 
-pub fn log_line(item: &impl Loggable) {
-    println!("Line logged: {}", item.log_content());
-}
+// pub fn log_line(item: &impl Loggable) {
+//     println!("Line logged: {}", item.log_content());
+// }
