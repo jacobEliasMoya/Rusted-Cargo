@@ -51,15 +51,17 @@ impl Summary for SocialPost {
     }
 }
 
-pub fn notify(item: &(impl Summary + Identify)) {
+pub fn notify<T: Summary + Identify>(item: &T) {
     println!("Breaking new! {}", item.summarize());
     println!("ID: {}", item.identify());
 }
 
-// pub fn notify_both<T: Summary>(item: &T) {
-//     println!("Breaking new! {}", item.summarize());
-// }
-
-// pub fn log_line(item: &impl Loggable) {
-//     println!("Line logged: {}", item.log_content());
-// }
+// functionally identical to function above ^^
+// just using where to make trait bounds clearer
+pub fn notify_where<T>(item: &T)
+where
+    T: Summary + Identify,
+{
+    println!("Breaking new! {}", item.summarize());
+    println!("ID: {}", item.identify());
+}
