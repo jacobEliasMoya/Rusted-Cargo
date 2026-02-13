@@ -1,5 +1,10 @@
 [workspace]
 members = [
-"app",
-"aggregator"
+  "app",
+  "aggregator"
 ]
+
+resolver = "3"
+
+[profile.release]
+panic = 'abort'

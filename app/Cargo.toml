@@ -8,5 +8,3 @@ rand = "0.8.5" # being used in separate files, not used at the moment
 aggregator = {path = "../aggregator"}
 uuid = {version = "1", features = ["v4"]}
 
-[profile.release]
-panic = 'abort'

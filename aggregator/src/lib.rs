@@ -65,3 +65,12 @@ where
     println!("Breaking new! {}", item.summarize());
     println!("ID: {}", item.identify());
 }
+
+pub fn returns_summarizable() -> impl Summary {
+    SocialPost {
+        username: String::from("Concrete username"),
+        content: String::from("Concrete content"),
+        reply: false,
+        repost: false,
+    }
+}
