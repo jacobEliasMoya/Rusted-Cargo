@@ -1,4 +1,16 @@
+use std::fmt::Display;
 use uuid::Uuid;
+
+pub struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
 
 pub trait Summary {
     fn summarize(&self) -> String;
