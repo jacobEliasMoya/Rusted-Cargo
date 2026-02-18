@@ -1,19 +1,21 @@
-use uuid::Uuid;
-// Defining Shared Behavior with Traits
-use aggregator::{NewsArticle, Summary, notify, returns_summarizable};
+// Lifetimes and Rust
+// lifetimes = ensuring that references are valid
 
 fn main() {
-    let article = NewsArticle {
-        id: Uuid::new_v4(),
-        headline: String::from("Bananas Poison"),
-        location: String::from("California"),
-        author: String::from("Ron Burgundy"),
-        content: String::from("This just in, bananas are poison"),
-    };
+    // let r;
+    //
+    // let x: u8 = 5;
+    // r = &x;
+    //
+    // println!("r: {r}");
 
-    let new_post = returns_summarizable();
+    let string1 = String::from("abcde");
+    let string2 = "xyz";
 
-    println!("This is the new post {}", new_post.summarize());
+    let result = longest(string1.as_str(), string2);
+    println!("The longest string is {result}");
+}
 
-    notify(&article);
+fn longest(x: &str, y: &str) -> &str {
+    if x.len() > y.len() { x } else { y }
 }
