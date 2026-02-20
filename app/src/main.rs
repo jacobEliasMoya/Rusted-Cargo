@@ -1,5 +1,9 @@
 // Lifetimes and Rust
 // lifetimes = ensuring that references are valid
+#[derive(Debug)]
+struct ImportantExcerpt<'a> {
+    part: &'a str,
+}
 
 fn main() {
     // let r;
@@ -17,6 +21,11 @@ fn main() {
 
     let result2 = greatest_int(&int1, &int2);
     println!("The longest string is {result2}");
+
+    let novel = String::from("This is a novel, it has letters...");
+    let first_part = novel.split(',').next().unwrap();
+    let i = ImportantExcerpt { part: &first_part };
+    println!("{}", i.part);
 }
 
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
