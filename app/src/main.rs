@@ -6,11 +6,6 @@ struct ImportantExcerpt<'a> {
 }
 
 fn main() {
-    // let r;
-    // let x: u8 = 5;
-    // r = &x;
-    // println!("r: {r}");
-
     let string1 = String::from("abcde");
     let string2 = "xyz";
     let int1 = 123;
