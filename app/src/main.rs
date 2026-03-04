@@ -5,11 +5,27 @@ struct ImportantExcerpt<'a> {
     part: &'a str,
 }
 
+impl<'a> ImportantExcerpt<'a> {
+    fn level(&self) -> i32 {
+        3
+    }
+}
+
+fn get_message(s: &'static str) -> &'static str {
+    s
+}
+
 fn main() {
     let string1 = String::from("abcde");
     let string2 = "xyz";
     let int1 = 123;
     let int2 = 1234234;
+
+    let s: &'static str = "I have a static lifetime";
+
+    let new_static: &'static str = get_message(s);
+
+    println!("This is static: {new_static}");
 
     let result = longest(string1.as_str(), string2);
     println!("The longest string is {result}");
@@ -29,4 +45,14 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
 
 fn greatest_int<'a>(x: &'a i32, y: &'a i32) -> &'a i32 {
     if x > y { x } else { y }
+}
+
+fn first_words(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
 }
