@@ -1,2 +1,4 @@
 // Working on testing in Rust
-fn main() {}
+fn main() {
+    println!("Hey There, testing 123");
+}
